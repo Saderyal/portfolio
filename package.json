@@ -1,0 +1,16 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Lorenzo Lannino's portfolio",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lorenzo Lannino",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.18"
+  }
+}
