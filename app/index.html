@@ -12,14 +12,14 @@
 			href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 			rel="stylesheet"
 		/>
-    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+		<link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css" />
 
 		<script type="importmap">
 			{
 				"imports": {
 					"gsap": "/node_modules/gsap/index.js",
 					"gsap/": "/node_modules/gsap/",
-          "lenis": "/node_modules/lenis/dist/lenis.mjs"
+					"lenis": "/node_modules/lenis/dist/lenis.mjs"
 				}
 			}
 		</script>
@@ -28,10 +28,12 @@
 		<section id="intro-section">
 			<h1>
 				<span class="greetings">Hi! I'm</span>
-				<span class="fullname"><b>Lorenzo Lannino<b></span>
+				<span class="fullname"><b>Lorenzo Lannino</b></span>
 			</h1>
-			<h2>A professional web developer</h2>
-			<h2 class="clown">...and clown</h2>
+			<h2>
+				A professional web developer<br />
+				<div class="clown">...and clown</div>
+			</h2>
 			<p>Scroll Down for more</p>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +50,28 @@
 			</svg>
 		</section>
 
-		<section id="presentation-section">Cicciooo</section>
+		<section id="presentation-section">
+			<div class="container">
+				<h3 class="title">
+					AS YOU MAYBE ALREADY SAW,<br />
+					<div class="highlight">CENTERING DIVS</div>
+					<br />
+					IS NOT THE MOST ADVANCED<br />
+					THING I CAN DO.
+				</h3>
+
+				<h3 class="right-title title">
+					DO YOU WANT TO
+					<div class="highlight">KNOW ME</div>
+					MORE?<br />
+					<div class="small">(I WOULDN'T.)</div>
+				</h3>
+				<div class="letsgosky">LET'S CLOSE<br />THE COURTAINS</div>
+			</div>
+
+			<div class="courtains left"></div>
+			<div class="courtains right"></div>
+		</section>
 
 		<script src="/app/scripts.js" type="module"></script>
 	</body>

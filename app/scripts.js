@@ -52,9 +52,57 @@ const introTl = gsap
 ScrollTrigger.create({
 	trigger: '#intro-section',
 	start: 'top top',
-	end: 'bottom top',
+	end: 'bottom+=400 top',
 	animation: introTl,
 	pin: true,
 	scrub: 0.2,
+	markers: true,
+});
+
+const presentationTl = gsap
+	.timeline()
+	.to(
+		'.title:nth-child(1)',
+		{
+			x: -100,
+			y: -100,
+			opacity: 0,
+		},
+		'+=0.15'
+	)
+	.to(
+		'.title:nth-child(2)',
+		{
+			x: 100,
+			y: 100,
+			opacity: 0,
+		},
+		'<'
+	)
+	.from(
+		'.letsgosky',
+		{
+			scale: 0,
+		},
+		'<+=0.03'
+	)
+	.from('.courtains.left', {
+		xPercent: -100,
+	})
+	.from(
+		'.courtains.right',
+		{
+			xPercent: 100,
+		},
+		'<'
+	);
+
+ScrollTrigger.create({
+	trigger: '#presentation-section',
+	start: 'top top',
+	end: 'bottom+=4000 top',
+	animation: presentationTl,
+	pin: true,
+	scrub: 0.5,
 	markers: true,
 });
