@@ -4,37 +4,32 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
 import { TextPlugin } from 'gsap/TextPlugin.js';
 import Lenis from 'lenis';
 
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
 window.addEventListener('load', () => {
 	gsap.from('body', { autoAlpha: 0 }); // here it'll start
 });
 
-// Initialize a new Lenis instance for smooth scrolling
+// LENIS
 const lenis = new Lenis();
-
-// Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
 lenis.on('scroll', ScrollTrigger.update);
-
-// Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
-// This ensures Lenis's smooth scroll animation updates on each GSAP tick
 gsap.ticker.add((time) => {
 	lenis.raf(time * 1000); // Convert time from seconds to milliseconds
 });
-
-// Disable lag smoothing in GSAP to prevent any delay in scroll animations
 gsap.ticker.lagSmoothing(0);
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
+/* ========== INTRO  ==========*/
 
 const introTl = gsap
 	.timeline({ defaults: { duration: 1 } })
-	.to('#intro-section .greetings, #intro-section p', {
+	.to('#intro .greetings, #intro p', {
 		opacity: 0,
 	})
-	.to('#intro-section .fullname', {
+	.to('#intro .fullname', {
 		xPercent: -20,
 	})
 	.to(
-		'#intro-section svg',
+		'#intro svg',
 		{
 			rotateZ: 180,
 		},
@@ -50,19 +45,21 @@ const introTl = gsap
 	);
 
 ScrollTrigger.create({
-	trigger: '#intro-section',
+	trigger: '#intro',
 	start: 'top top',
 	end: 'bottom+=400 top',
 	animation: introTl,
 	pin: true,
 	scrub: 0.2,
-	markers: true,
+	markers: false,
 });
 
-const presentationTl = gsap
+/* ========== COURTAINS ========== */
+
+const courtainsTl = gsap
 	.timeline()
 	.to(
-		'.title:nth-child(1)',
+		'.courtains-title:nth-child(1)',
 		{
 			x: -100,
 			y: -100,
@@ -71,7 +68,7 @@ const presentationTl = gsap
 		'+=0.15'
 	)
 	.to(
-		'.title:nth-child(2)',
+		'.courtains-title:nth-child(2)',
 		{
 			x: 100,
 			y: 100,
@@ -80,9 +77,10 @@ const presentationTl = gsap
 		'<'
 	)
 	.from(
-		'.letsgosky',
+		'.courtains-text',
 		{
 			scale: 0,
+			opacity: 0,
 		},
 		'<+=0.03'
 	)
@@ -98,11 +96,121 @@ const presentationTl = gsap
 	);
 
 ScrollTrigger.create({
-	trigger: '#presentation-section',
+	trigger: '#courtains',
 	start: 'top top',
-	end: 'bottom+=4000 top',
-	animation: presentationTl,
+	end: 'top+=3000 bottom',
+	animation: courtainsTl,
 	pin: true,
 	scrub: 0.5,
-	markers: true,
+	markers: false,
+});
+
+/* ========== PRESENTATION ========== */
+ScrollTrigger.create({
+	trigger: '#presentation .title',
+	start: 'top 50% ',
+	end: 'bottom+=500 50%',
+	markers: false,
+	pin: true,
+});
+
+const presentationParagraphs = document.querySelectorAll('#presentation .info > div');
+const presentationTitle = document.querySelector('#presentation .stickyTitle > h3');
+
+const presentationTitles = [
+	'Who am I?',
+	'What are<br/>my passions?',
+	'What about<br/>my hobbies?',
+	'What do I do<br/>for a living?',
+];
+
+presentationTitles.forEach((title, i) => {
+	const tweenCb = () => gsap.to(presentationTitle, { text: title });
+	const tweenCbBack = () =>
+		gsap.to(presentationTitle, {
+			text: {
+				value: title,
+				rtl: true,
+			},
+		});
+	ScrollTrigger.create({
+		trigger: presentationParagraphs[i],
+		start: 'top 50% ',
+		end: 'bottom 50%',
+		markers: false,
+		onEnter: tweenCb,
+		onEnterBack: tweenCbBack,
+		scrub: 1,
+	});
+});
+
+/* ========== EDUCATION ========== */
+
+const certificatesIntroTl = gsap
+	.timeline()
+	.to(
+		'#certificates .title',
+		{
+			opacity: 0,
+		},
+		'1'
+	)
+	.from('#certificates .school', {
+		opacity: 0,
+	})
+	.to(
+		'#certificates .school',
+		{
+			opacity: 0,
+		},
+		'>+1'
+	)
+	.from('#certificates .but', {
+		opacity: 0,
+	})
+	.to(
+		'#certificates .but',
+		{
+			opacity: 0,
+		},
+		'>+1'
+	);
+
+ScrollTrigger.create({
+	trigger: '#certificates > .intro',
+	animation: certificatesIntroTl,
+	start: 'top top',
+	end: 'bottom+=2000 bottom',
+	markers: false,
+	pin: true,
+	scrub: 0.5,
+});
+
+const certificates = document.querySelectorAll('.numberOfCertificates');
+
+certificates.forEach((certificate) => {
+	gsap.set(certificate.querySelectorAll('.number'), { yPercent: -50 });
+
+	const numberOfCertificatesTl = gsap
+		.timeline()
+		.from(certificate.querySelectorAll('.number > div'), {
+			yPercent: 100,
+			stagger: 0.2,
+		})
+		.from(
+			certificate.querySelector('.info'),
+			{
+				opacity: 0,
+			},
+			'<'
+		);
+
+	ScrollTrigger.create({
+		trigger: certificate,
+		start: 'top bottom',
+		end: 'top 50%',
+		animation: numberOfCertificatesTl,
+		markers: true,
+		scrub: 1,
+	});
 });

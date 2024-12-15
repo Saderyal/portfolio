@@ -6,6 +6,11 @@
 	box-sizing: border-box;
 }
 
+:root {
+	--primary-color: #4030ff;
+	--secondary-color: #7166fc;
+}
+
 body {
 	background-color: #ffffff;
 	color: #000000;
@@ -18,12 +23,30 @@ body {
 }
 
 .container {
-	max-width: 1400px;
+	max-width: 1300px;
 	margin: 0 auto;
 	width: 100%;
 }
 
-#intro-section {
+.highlight {
+	color: var(--primary-color);
+	display: inline-block;
+	font-weight: 800;
+}
+
+.title {
+	text-align: center;
+	font-size: clamp(40px, 7vw, 70px);
+}
+
+.subtitle {
+	text-align: center;
+	font-size: clamp(25px, 5vw, 50px);
+}
+
+/* ========== INTRO ========== */
+
+#intro {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -34,51 +57,56 @@ body {
 	max-width: 600px;
 	margin: 0 auto;
 }
-#intro-section h1 {
+#intro h1 {
 	font-size: clamp(14px, 10vw, 50px);
 	display: flex;
 	gap: 10px;
 	font-weight: 400;
 }
-#intro-section h2 {
+#intro h2 {
 	font-size: clamp(14px, 8vw, 40px);
 	font-weight: 400;
 }
 .fullname {
 	font-weight: 900;
 }
-#intro-section p {
+#intro p {
 	margin-top: 50px;
 }
-#intro-section h1 span {
+#intro h1 span {
 	display: block;
 }
 .clown {
 	text-align: right;
 }
 
-#presentation-section {
+/* ========== COURTAINS ========== */
+
+#courtains {
 	height: 100vh;
 	font-size: clamp(20px, 6vw, 45px);
 	margin-top: 100vh;
 	position: relative;
 }
-#presentation-section .title {
+#courtains .courtains-title {
 	position: absolute;
 	width: 70%;
 	font-weight: 400;
 	top: 50px;
-	left: 50px;
+	left: 0;
+}
+#courtains .highlight {
+	font-weight: 800;
 }
 
-#presentation-section .right-title {
+#courtains .right-title {
 	top: unset;
 	left: unset;
 	bottom: 50px;
-	right: 50px;
+	right: 0;
 }
 
-.letsgosky {
+.courtains-text {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -93,14 +121,12 @@ body {
 	top: 0;
 	bottom: 0;
 	left: 0;
-	right: 0;
 	background-color: #000000;
+	width: 50%;
 }
-
-.highlight {
-	color: #4030ff;
-	font-weight: 800;
-	display: inline-block;
+.courtains.right {
+	left: unset;
+	right: 0;
 }
 
 .right-title {
@@ -109,4 +135,87 @@ body {
 }
 .small {
 	font-size: clamp(10px, 3vw, 20px);
+}
+
+/* ========== PRESENTATION ========== */
+#presentation {
+	background-color: #000000;
+	color: #ffffff;
+	padding: 50vh 0 70vh 0;
+	margin-bottom: 50vh;
+	clip-path: ellipse(145% 65% at 50% 35%);
+}
+.presentation-title {
+	margin-bottom: 50vh;
+}
+.presentation-container {
+	display: flex;
+	align-items: start;
+	gap: 50px;
+}
+
+#presentation .stickyTitle {
+	position: sticky;
+	top: 30%;
+	left: 0;
+	width: 40%;
+	text-align: right;
+	font-size: clamp(30px, 5vw, 50px);
+	padding: 20px 50px;
+	border-right: 5px solid var(--secondary-color);
+}
+#presentation .highlight {
+	color: var(--secondary-color);
+	text-decoration: none;
+	font-weight: 800;
+}
+#presentation .info {
+	width: 60%;
+}
+#presentation .info > div {
+	padding-top: 50vh;
+	padding-bottom: 50vh;
+}
+#presentation .info > div:last-child {
+	padding-bottom: 20px;
+}
+
+/* ========== CERTIFICATES ========== */
+
+#certificates .intro {
+	position: relative;
+	height: 100vh;
+	text-align: center;
+}
+
+#certificates .intro > * {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#certificates .number {
+	color: var(--primary-color);
+	line-height: 1;
+	overflow: hidden;
+	font-size: clamp(80px, 20vw, 250px);
+	display: flex;
+}
+
+.numberOfCertificates {
+	display: flex;
+	justify-content: end;
+	align-items: start;
+	gap: 100px;
+}
+.numberOfCertificates {
+	margin-bottom: 60vh;
+}
+.numberOfCertificates .info {
+	width: 50%;
+	font-size: clamp(16px, 3vw, 30px);
+}
+.numberOfCertificates a.highlight {
+	text-decoration: none;
 }
