@@ -20,6 +20,7 @@ body {
 	font-style: normal;
 	font-size: 24px;
 	visibility: hidden;
+	overflow-x: hidden;
 }
 
 .container {
@@ -218,4 +219,100 @@ body {
 }
 .numberOfCertificates a.highlight {
 	text-decoration: none;
+}
+
+/* ========== KNOWLEDGE ========== */
+#knowledge .horizontal-scroll > h3.subtitle {
+	min-width: 100vw;
+	text-align: left;
+	margin-left: 100px;
+	font-size: 100px;
+}
+#knowledge > .title {
+	margin-bottom: 50vh;
+}
+
+#knowledge .horizontal-scroll {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	gap: 50px;
+}
+
+#knowledge .card {
+	min-width: 400px;
+	width: 400px;
+	height: 450px;
+	max-height: 100vh;
+	overflow: auto;
+	max-width: 80vw;
+	border-radius: 16px;
+	background-color: #eeeeee;
+	color: #000000;
+	box-shadow: 0px 4px 15px #00000040;
+	padding: 20px;
+	text-align: center;
+}
+
+#knowledge .card > img {
+	width: 100px;
+	height: auto;
+}
+#knowledge .card .card__title {
+	font-size: 40px;
+	font-weight: 600;
+	margin: 10px 0 30px 0;
+	/* rgb(250 239 164) */
+}
+
+#knowledge .title.more {
+	margin: 50vh 0;
+}
+
+#knowledge .technologies {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: auto;
+	gap: 50px;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+	align-content: center;
+}
+
+#knowledge .technologies img {
+	width: 100%;
+	height: auto;
+}
+
+#knowledge .technologies.container {
+	max-width: 1200px;
+}
+
+#knowledge .technologies img:nth-child(1) {
+	grid-column: 1 / 4;
+}
+#knowledge .technologies img:nth-child(2) {
+	grid-column: 4 / 10;
+}
+#knowledge .technologies img:nth-child(3) {
+	grid-column: 10 / 13;
+}
+#knowledge .technologies img:nth-child(4) {
+	grid-column: 1 / 4;
+}
+#knowledge .technologies img:nth-child(5) {
+	grid-column: 4 / 7;
+}
+#knowledge .technologies img:nth-child(6) {
+	grid-column: 7 / 10;
+}
+#knowledge .technologies img:nth-child(7) {
+	grid-column: 10 / 13;
+}
+#knowledge .technologies img:nth-child(8) {
+	grid-column: 1 / 7;
+}
+#knowledge .technologies img:nth-child(9) {
+	grid-column: 7 / 13;
 }

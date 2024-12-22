@@ -180,7 +180,7 @@ ScrollTrigger.create({
 	trigger: '#certificates > .intro',
 	animation: certificatesIntroTl,
 	start: 'top top',
-	end: 'bottom+=2000 bottom',
+	end: 'bottom+=1500 bottom',
 	markers: false,
 	pin: true,
 	scrub: 0.5,
@@ -208,9 +208,51 @@ certificates.forEach((certificate) => {
 	ScrollTrigger.create({
 		trigger: certificate,
 		start: 'top bottom',
-		end: 'top 50%',
+		end: 'top-=50 50%',
 		animation: numberOfCertificatesTl,
-		markers: true,
+		markers: false,
 		scrub: 1,
 	});
 });
+
+/* ========== KNOWLEDGE ========== */
+const knowledge = document.querySelector('#knowledge .horizontal-scroll');
+
+const getScrollAmount = () => {
+	return -(knowledge.scrollWidth - window.innerWidth + (window.innerWidth / 2 - 200));
+};
+
+const tween = gsap.to(knowledge, {
+	x: getScrollAmount,
+	duration: 3,
+	ease: 'none',
+});
+
+ScrollTrigger.create({
+	trigger: '#knowledge .wrapper',
+	start: 'top top',
+	end: () => `+=${getScrollAmount() * -1}`,
+	pin: true,
+	animation: tween,
+	scrub: 1,
+	invalidateOnRefresh: true,
+	markers: false,
+});
+
+gsap
+	.timeline({
+		scrollTrigger: {
+			trigger: '.technologies',
+			start: 'top bottom',
+			end: 'bottom+=200 top',
+			scrub: 0.5,
+			markers: true,
+		},
+	})
+	.to('.parallax-logo', {
+		duration: 1,
+		y: (i_, target) => {
+			const multiplier = target.dataset.multiplier;
+			return `-=${100 * multiplier}`;
+		},
+	});
