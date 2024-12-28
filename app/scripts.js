@@ -106,14 +106,6 @@ ScrollTrigger.create({
 });
 
 /* ========== PRESENTATION ========== */
-ScrollTrigger.create({
-	trigger: '#presentation .title',
-	start: 'top 50% ',
-	end: 'bottom+=500 50%',
-	markers: false,
-	pin: true,
-});
-
 const presentationParagraphs = document.querySelectorAll('#presentation .info > div');
 const presentationTitle = document.querySelector('#presentation .stickyTitle > h3');
 
@@ -239,20 +231,85 @@ ScrollTrigger.create({
 	markers: false,
 });
 
-gsap
-	.timeline({
-		scrollTrigger: {
-			trigger: '.technologies',
-			start: 'top bottom',
-			end: 'bottom+=200 top',
-			scrub: 0.5,
-			markers: true,
-		},
-	})
-	.to('.parallax-logo', {
+ScrollTrigger.create({
+	trigger: '.technologies',
+	start: 'top bottom',
+	end: 'bottom+=200 top',
+	scrub: 0.5,
+	markers: false,
+	animation: gsap.to('.parallax-logo', {
 		duration: 1,
-		y: (i_, target) => {
+		y: (_i, target) => {
 			const multiplier = target.dataset.multiplier;
 			return `-=${100 * multiplier}`;
 		},
+	}),
+});
+
+/* ========== ENGIMEDIA ========== */
+const engimediaTween = gsap.to('#engimedia', { backgroundPositionY: '100%' });
+
+ScrollTrigger.create({
+	trigger: '#engimedia',
+	start: 'top top',
+	end: 'bottom top',
+	animation: engimediaTween,
+	scrub: 0,
+	markers: false,
+});
+
+/* ========== SET IT UP ========== */
+const getFinalSize = () => {
+	return (
+		Math.sqrt(window.innerWidth * window.innerWidth + window.innerHeight * window.innerHeight) * 2
+	);
+};
+
+ScrollTrigger.create({
+	trigger: '#setitup .background',
+	start: 'top top',
+	end: 'bottom+=500 50%',
+	animation: gsap.to('#setitup .background .circle', {
+		width: getFinalSize,
+		height: getFinalSize,
+		ease: 'power2.out',
+	}),
+	invalidateOnRefresh: true,
+	pin: true,
+	scrub: 0,
+	markers: false,
+});
+
+document.querySelectorAll('#setitup .bubble').forEach((bubble) => {
+	const tween = gsap.to(bubble, {
+		y: (a, b, c) => {
+			console.log(a, b, c);
+			return -500;
+		},
 	});
+	ScrollTrigger.create({
+		trigger: '#setitup .content',
+		start: 'top bottom',
+		end: 'bottom bottom',
+		animation: tween,
+		scrub: 0.5,
+		markers: false,
+	});
+});
+
+/* ========== WOMPO ========== */
+const wompoIntroTween = gsap.timeline().to('#wompo .bubble', {
+	backgroundColor: '#573EF6',
+	width: () => Math.max(window.innerWidth, window.innerHeight) * 2,
+	height: () => Math.max(window.innerWidth, window.innerHeight) * 2,
+});
+
+ScrollTrigger.create({
+	trigger: '#wompo .intro',
+	start: 'top top',
+	end: 'bottom top',
+	animation: wompoIntroTween,
+	pin: true,
+	scrub: 0.5,
+	markers: true,
+});

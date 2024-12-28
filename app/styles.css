@@ -147,7 +147,7 @@ body {
 	clip-path: ellipse(145% 65% at 50% 35%);
 }
 .presentation-title {
-	margin-bottom: 50vh;
+	margin-bottom: 90vh;
 }
 .presentation-container {
 	display: flex;
@@ -211,7 +211,7 @@ body {
 	gap: 100px;
 }
 .numberOfCertificates {
-	margin-bottom: 60vh;
+	margin-bottom: 80vh;
 }
 .numberOfCertificates .info {
 	width: 50%;
@@ -270,6 +270,7 @@ body {
 }
 
 #knowledge .technologies {
+	height: 100vh;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: auto;
@@ -315,4 +316,136 @@ body {
 }
 #knowledge .technologies img:nth-child(9) {
 	grid-column: 7 / 13;
+}
+
+/* ========== EXPERIENCES ========== */
+
+#experiences {
+	margin: 20vh 0 100vh 0;
+}
+
+/* ========== ENGIMEDIA ========== */
+#engimedia {
+	background-image: url(/assets/logos/engimedia.svg);
+	background-repeat: no-repeat;
+	background-position-x: 50%;
+	background-position-y: 0%;
+	background-color: white;
+	background-size: 100%;
+	display: block;
+	position: relative;
+}
+
+#engimedia .analysis p {
+	color: black;
+	color: white;
+	font-size: 100px;
+	mix-blend-mode: difference;
+	margin: 80vh 0;
+}
+#engimedia .analysis p:first-child {
+	margin-top: 0;
+	padding-top: 40vh;
+}
+#engimedia .analysis p.right {
+	text-align: right;
+}
+#engimedia .analysis p.center {
+	text-align: center;
+	margin-bottom: 30vh;
+}
+#engimedia .analysis .details {
+	font-size: 18px;
+	display: block;
+}
+
+/* ========== SET IT UP ========== */
+#setitup .background {
+	height: 100vh;
+	background-color: #ffffff;
+	position: relative;
+	overflow: hidden;
+}
+#setitup .background .circle {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	background-color: #afd0d7;
+	transform: translate(-50%, 50%);
+	border-radius: 50%;
+}
+
+#setitup .content {
+	background-color: #afd0d7;
+	color: #000000;
+	font-size: 30px;
+	text-align: center;
+	position: relative;
+	padding-bottom: 50vh;
+}
+#setitup > .content > .intro {
+	display: flex;
+	position: relative;
+	align-items: center;
+}
+#setitup > .content > .intro > * {
+	width: 50%;
+}
+
+#setitup .logo {
+	width: 100%;
+}
+
+#setitup .title {
+	color: #005e6b;
+	text-transform: uppercase;
+	text-align: center;
+	mix-blend-mode: multiply;
+}
+
+#setitup .highlight {
+	color: #005e6b;
+}
+
+#setitup .bubble {
+	background-color: #275c69;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+#setitup .bubble.light {
+	background-color: #dbf7ff;
+}
+#setitup .text {
+	mix-blend-mode: multiply;
+	font-size: 35px;
+	margin-top: 20vh;
+}
+
+/* ========== WOMPO ========== */
+#wompo {
+	position: relative;
+}
+
+#wompo .intro {
+	position: relative;
+	height: 100vh;
+	background-color: #afd0d7;
+	overflow: hidden;
+}
+
+#wompo .bubble {
+	background-color: #275c69;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
 }
