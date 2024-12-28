@@ -298,11 +298,14 @@ document.querySelectorAll('#setitup .bubble').forEach((bubble) => {
 });
 
 /* ========== WOMPO ========== */
-const wompoIntroTween = gsap.timeline().to('#wompo .bubble', {
-	backgroundColor: '#573EF6',
-	width: () => Math.max(window.innerWidth, window.innerHeight) * 2,
-	height: () => Math.max(window.innerWidth, window.innerHeight) * 2,
-});
+const wompoIntroTween = gsap
+	.timeline()
+	.to('#wompo .bubble', {
+		backgroundColor: '#573EF6',
+		width: () => Math.max(window.innerWidth, window.innerHeight) * 2,
+		height: () => Math.max(window.innerWidth, window.innerHeight) * 2,
+	})
+	.to('#wompo .logo', {});
 
 ScrollTrigger.create({
 	trigger: '#wompo .intro',
