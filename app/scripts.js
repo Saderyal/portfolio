@@ -268,7 +268,7 @@ const getFinalSize = () => {
 ScrollTrigger.create({
 	trigger: '#setitup .background',
 	start: 'top top',
-	end: 'bottom+=500 50%',
+	end: 'bottom+=1000 bottom',
 	animation: gsap.to('#setitup .background .circle', {
 		width: getFinalSize,
 		height: getFinalSize,
@@ -280,21 +280,17 @@ ScrollTrigger.create({
 	markers: false,
 });
 
-document.querySelectorAll('#setitup .bubble').forEach((bubble) => {
-	const tween = gsap.to(bubble, {
-		y: (a, b, c) => {
-			console.log(a, b, c);
-			return -500;
-		},
-	});
-	ScrollTrigger.create({
-		trigger: '#setitup .content',
-		start: 'top bottom',
-		end: 'bottom bottom',
-		animation: tween,
-		scrub: 0.5,
-		markers: false,
-	});
+const setitupBubblesTween = gsap.to('#setitup .bubble', {
+	y: -600,
+});
+
+ScrollTrigger.create({
+	trigger: '#setitup .content',
+	start: 'top bottom',
+	end: 'bottom top',
+	animation: setitupBubblesTween,
+	scrub: 0.5,
+	markers: true,
 });
 
 /* ========== WOMPO ========== */
@@ -302,17 +298,47 @@ const wompoIntroTween = gsap
 	.timeline()
 	.to('#wompo .bubble', {
 		backgroundColor: '#573EF6',
-		width: () => Math.max(window.innerWidth, window.innerHeight) * 2,
-		height: () => Math.max(window.innerWidth, window.innerHeight) * 2,
+		width: () =>
+			Math.max(window.innerWidth, window.innerHeight) +
+			Math.min(window.innerWidth, window.innerHeight) / 2,
+		height: () =>
+			Math.max(window.innerWidth, window.innerHeight) +
+			Math.min(window.innerWidth, window.innerHeight) / 2,
 	})
-	.to('#wompo .logo', {});
+	.from('#wompo-logo', {
+		opacity: 0,
+		scale: 0.5,
+	})
+	.from(
+		'#wompo .wompo-title',
+		{
+			opacity: 0,
+			y: 100,
+		},
+		'>-0.3'
+	);
 
 ScrollTrigger.create({
 	trigger: '#wompo .intro',
 	start: 'top top',
-	end: 'bottom top',
+	end: 'bottom+=2000 top',
 	animation: wompoIntroTween,
 	pin: true,
 	scrub: 0.5,
-	markers: true,
+	markers: false,
+});
+
+document.querySelectorAll('#wompo .info .container p').forEach((p, i) => {
+	const tween = gsap.from(p, {
+		opacity: 0,
+		x: i % 2 === 0 ? -100 : 100,
+	});
+	ScrollTrigger.create({
+		trigger: p,
+		start: 'top 90%',
+		end: 'top 50%',
+		animation: tween,
+		toggleActions: 'restart none none reverse',
+		markers: false,
+	});
 });
