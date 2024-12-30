@@ -100,6 +100,7 @@ body {
 	height: 100vh;
 	margin-top: 100vh;
 	position: relative;
+	overflow: hidden;
 }
 #courtains .courtains-title {
 	position: absolute;
@@ -478,6 +479,7 @@ body {
 	position: relative;
 	display: block;
 	padding-bottom: 500px;
+	overflow: hidden;
 }
 #setitup > .content > .intro {
 	display: flex;
@@ -535,6 +537,7 @@ body {
 #wompo {
 	position: relative;
 	display: block;
+	overflow: hidden;
 }
 
 #wompo .intro {
@@ -576,10 +579,10 @@ body {
 	text-decoration: none;
 }
 #wompo .wompo-title h2 {
-	font-size: 100px;
+	font-size: clamp(50px, 20vw, 100px);
 }
 #wompo .wompo-title h3 {
-	font-size: 30px;
+	font-size: clamp(20px, 2vw, 30px);
 }
 
 #wompo .info {
