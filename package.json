@@ -1,16 +1,21 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "Lorenzo Lannino's portfolio",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Lorenzo Lannino",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.21.2",
-    "gsap": "^3.12.5",
-    "lenis": "^1.1.18"
-  }
+	"name": "portfolio",
+	"version": "1.0.0",
+	"description": "Lorenzo Lannino's portfolio",
+	"main": "app.js",
+	"type": "module",
+	"scripts": {
+		"dev": "node app.js",
+		"build": "",
+		"start": "node app.js"
+	},
+	"author": "Lorenzo Lannino",
+	"license": "ISC",
+	"dependencies": {
+		"compression": "^1.7.5",
+		"express": "^4.21.2",
+		"gsap": "^3.12.5",
+		"helmet": "^8.0.0",
+		"lenis": "^1.1.18"
+	}
 }

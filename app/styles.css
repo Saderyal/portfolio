@@ -29,9 +29,16 @@ body {
 	width: 100%;
 }
 
+@media (width < 1300px) {
+	.container {
+		max-width: 1000px;
+		padding: 0 20px;
+	}
+}
+
 .highlight {
 	color: var(--primary-color);
-	display: inline-block;
+	display: inline;
 	font-weight: 800;
 }
 
@@ -59,7 +66,7 @@ body {
 	margin: 0 auto;
 }
 #intro h1 {
-	font-size: clamp(14px, 10vw, 50px);
+	font-size: clamp(14px, 7vw, 50px);
 	display: flex;
 	gap: 10px;
 	font-weight: 400;
@@ -81,11 +88,16 @@ body {
 	text-align: right;
 }
 
+@media (width < 600px) {
+	#intro .clown {
+		text-align: center;
+	}
+}
+
 /* ========== COURTAINS ========== */
 
 #courtains {
 	height: 100vh;
-	font-size: clamp(20px, 6vw, 45px);
 	margin-top: 100vh;
 	position: relative;
 }
@@ -94,7 +106,8 @@ body {
 	width: 70%;
 	font-weight: 400;
 	top: 50px;
-	left: 0;
+	left: 50px;
+	font-size: clamp(20px, 5vw, 60px);
 }
 #courtains .highlight {
 	font-weight: 800;
@@ -104,7 +117,7 @@ body {
 	top: unset;
 	left: unset;
 	bottom: 50px;
-	right: 0;
+	right: 50px;
 }
 
 .courtains-text {
@@ -136,6 +149,12 @@ body {
 }
 .small {
 	font-size: clamp(10px, 3vw, 20px);
+}
+
+@media (width < 900px) {
+	#courtains .courtains-title {
+		font-size: clamp(40px, 8vw, 60px);
+	}
 }
 
 /* ========== PRESENTATION ========== */
@@ -181,6 +200,27 @@ body {
 	padding-bottom: 20px;
 }
 
+@media (width < 800px) {
+	#presentation {
+		clip-path: ellipse(250% 65% at 50% 35%);
+	}
+	#presentation .presentation-container {
+		flex-direction: column;
+	}
+	#presentation .stickyTitle {
+		top: 0;
+		text-align: center;
+		width: 100%;
+		height: 150px;
+		border-right: none;
+		background-color: #000000;
+		border-bottom: 5px solid var(--secondary-color);
+	}
+	#presentation .info {
+		width: 100%;
+	}
+}
+
 /* ========== CERTIFICATES ========== */
 
 #certificates .intro {
@@ -199,7 +239,6 @@ body {
 #certificates .number {
 	color: var(--primary-color);
 	line-height: 1;
-	overflow: hidden;
 	font-size: clamp(80px, 20vw, 250px);
 	display: flex;
 }
@@ -221,12 +260,25 @@ body {
 	text-decoration: none;
 }
 
+@media (width < 900px) {
+	.numberOfCertificates {
+		gap: 30px;
+	}
+	#certificates .number {
+		font-size: clamp(80px, 30vw, 250px);
+	}
+	.numberOfCertificates .info {
+		width: 60%;
+		font-size: clamp(16px, 5vw, 30px);
+	}
+}
+
 /* ========== KNOWLEDGE ========== */
 #knowledge .horizontal-scroll > h3.subtitle {
 	min-width: 100vw;
 	text-align: left;
 	margin-left: 100px;
-	font-size: 100px;
+	font-size: clamp(40px, 9vw, 100px);
 }
 #knowledge > .title {
 	margin-bottom: 50vh;
@@ -247,7 +299,7 @@ body {
 	overflow: auto;
 	max-width: 80vw;
 	border-radius: 16px;
-	background-color: #eeeeee;
+	background-color: #ffffff;
 	color: #000000;
 	box-shadow: 0px 4px 15px #00000040;
 	padding: 20px;
@@ -270,7 +322,7 @@ body {
 }
 
 #knowledge .technologies {
-	height: 100vh;
+	min-height: 100vh;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: auto;
@@ -318,6 +370,36 @@ body {
 	grid-column: 7 / 13;
 }
 
+@media (width < 700px) {
+	#knowledge .technologies img:nth-child(1) {
+		grid-column: 1 / 7;
+	}
+	#knowledge .technologies img:nth-child(2) {
+		grid-column: 7 / 13;
+	}
+	#knowledge .technologies img:nth-child(3) {
+		grid-column: 1 / 7;
+	}
+	#knowledge .technologies img:nth-child(4) {
+		grid-column: 7 / 13;
+	}
+	#knowledge .technologies img:nth-child(5) {
+		grid-column: 1 / 7;
+	}
+	#knowledge .technologies img:nth-child(6) {
+		grid-column: 7 / 13;
+	}
+	#knowledge .technologies img:nth-child(7) {
+		grid-column: 4 / 9;
+	}
+	#knowledge .technologies img:nth-child(8) {
+		grid-column: 1 / 7;
+	}
+	#knowledge .technologies img:nth-child(9) {
+		grid-column: 7 / 13;
+	}
+}
+
 /* ========== EXPERIENCES ========== */
 
 #experiences {
@@ -339,9 +421,10 @@ body {
 #engimedia .analysis p {
 	color: black;
 	color: white;
-	font-size: 100px;
+	font-size: clamp(25px, 9vw, 100px);
 	mix-blend-mode: difference;
 	margin: 80vh 0;
+	width: 80%;
 }
 #engimedia .analysis p:first-child {
 	margin-top: 0;
@@ -349,10 +432,12 @@ body {
 }
 #engimedia .analysis p.right {
 	text-align: right;
+	margin-left: auto;
 }
 #engimedia .analysis p.center {
 	text-align: center;
 	margin-bottom: 30vh;
+	width: 100%;
 }
 #engimedia .analysis .details {
 	font-size: 18px;
@@ -392,7 +477,7 @@ body {
 	align-items: center;
 }
 #setitup > .content > .intro > * {
-	width: 50%;
+	width: 100%;
 }
 
 #setitup .logo {
@@ -427,6 +512,15 @@ body {
 	mix-blend-mode: multiply;
 	font-size: 35px;
 	margin-top: 20vh;
+}
+
+@media (width < 900px) {
+	#setitup .intro {
+		flex-direction: column;
+	}
+	#setitup .m-hidden {
+		display: none;
+	}
 }
 
 /* ========== WOMPO ========== */
@@ -485,6 +579,7 @@ body {
 	color: #ffffff;
 	font-size: 28px;
 	padding: 70vh 0;
+	clip-path: polygon(0 0, 0 100%, 50% 90%, 100% 100%, 100% 0);
 }
 
 #wompo .highlight {
@@ -497,7 +592,7 @@ body {
 #wompo .info > .container {
 	display: flex;
 	flex-direction: column;
-	gap: 30vh;
+	gap: 50vh;
 }
 
 #wompo .info p {
@@ -507,4 +602,57 @@ body {
 #wompo .info p:nth-child(odd) {
 	text-align: right;
 	align-self: flex-end;
+}
+
+@media (width < 950px) {
+	#wompo .info {
+		clip-path: polygon(0 0, 0 100%, 50% 98%, 100% 100%, 100% 0);
+	}
+}
+@media (width < 800px) {
+	#wompo .info p {
+		width: 100%;
+	}
+}
+
+/* ========== SUMMARY ========== */
+
+#summary .grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 100px;
+	font-size: clamp(18px, 3vw, 26px);
+	margin-top: 200px;
+	margin-bottom: 50vh;
+}
+
+#summary h3 {
+	font-size: clamp(24px, 4vw, 36px);
+	margin: 20px 0;
+}
+
+@media (width < 950px) {
+	#summary .grid {
+		grid-template-columns: 1fr;
+	}
+	#summary h3 {
+		display: flex;
+	}
+}
+
+/* ========== CONTACTS ========== */
+
+#contacts {
+	margin: 50vh auto;
+}
+
+#contacts .subtitle {
+	margin-top: 50px;
+}
+
+#contacts p {
+	text-align: center;
+	margin-bottom: 50px;
+	font-size: 18px;
+	font-weight: 400;
 }

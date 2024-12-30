@@ -8,7 +8,15 @@
 			name="description"
 			content="Lorenzo Lannino is an italian full-stack web developer and mobile app developer, specialized in the frontend part of a Web Application."
 		/>
-		<link href="/app/styles.css" rel="stylesheet" />
+
+		<link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+		<link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Lorenzo Lannino" />
+		<link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+		<link href="/styles.min.css" rel="stylesheet" />
 		<!-- GOOGLE FONT -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,9 +29,9 @@
 		<script type="importmap">
 			{
 				"imports": {
-					"gsap": "/node_modules/gsap/index.js",
-					"gsap/": "/node_modules/gsap/",
-					"lenis": "/node_modules/lenis/dist/lenis.mjs"
+					"gsap": "/gsap/index.js",
+					"gsap/": "/gsap/",
+					"lenis": "/lenis/dist/lenis.mjs"
 				}
 			}
 		</script>
@@ -57,9 +65,7 @@
 		<section id="courtains">
 			<div class="container" style="height: 100vh; position: relative">
 				<h3 class="courtains-title">
-					AS YOU MAYBE ALREADY SAW,<br />
 					<div class="highlight">CENTERING DIVS</div>
-					<br />
 					IS NOT THE MOST ADVANCED<br />
 					THING I CAN DO.
 				</h3>
@@ -89,8 +95,7 @@
 						. I am 23 years old, and I currently live in Venice, Italy.<br />
 						I'm bald but I used to have red hair... life is unfair.<br />
 						Besides that, I am a professional
-						<b class="highlight">Web Developer</b>
-						.
+						<b class="highlight">Web Developer</b>.
 					</div>
 					<div>
 						I really like coding. I consider it <b class="highlight">a form of art</b>. Another
@@ -257,63 +262,54 @@
 				<img
 					class="parallax-logo"
 					data-multiplier="4"
-					loading="lazy"
 					alt="Java logo"
 					src="/assets/technologies/java.png"
 				/>
 				<img
 					class="parallax-logo"
 					data-multiplier="2"
-					loading="lazy"
 					alt="NodeJS logo"
 					src="/assets/technologies/node.png"
 				/>
 				<img
 					class="parallax-logo"
 					data-multiplier="4"
-					loading="lazy"
 					alt="MongoDB logo"
 					src="/assets/technologies/mongodb.png"
 				/>
 				<img
 					class="parallax-logo"
 					data-multiplier="5"
-					loading="lazy"
 					alt="Dart logo"
 					src="/assets/technologies/dart.png"
 				/>
 				<img
 					class="parallax-logo"
 					data-multiplier="7"
-					loading="lazy"
 					alt="Wordpress logo"
 					src="/assets/technologies/wordpress.webp"
 				/>
 				<img
 					class="parallax-logo"
 					data-multiplier="7"
-					loading="lazy"
 					alt="GSAP logo"
 					src="/assets/technologies/gsap.svg"
 				/>
 				<img
 					class="parallax-logo"
 					data-multiplier="5"
-					loading="lazy"
 					alt="ThreeJS logo"
 					src="/assets/technologies/three.png"
 				/>
 				<img
 					class="parallax-logo"
 					data-multiplier="8"
-					loading="lazy"
 					alt="Sass logo"
 					src="/assets/technologies/sass.png"
 				/>
 				<img
 					class="parallax-logo"
 					data-multiplier="8"
-					loading="lazy"
 					alt="SQL logo"
 					src="/assets/technologies/sql.png"
 				/>
@@ -338,18 +334,18 @@
 						</span>
 					</p>
 					<p class="right">
-						Creation of websites and <br />e-commerces
+						Creation of websites and e-commerces
 						<span class="details"> (using Wordpress with Elementor or Divi, and WooCommerce) </span>
 					</p>
 					<p>
-						Creation of <br />mobile applications
+						Creation of mobile applications
 						<span class="details">
 							(using Dart & Flutter. Only one application deployed on production. Two more only
 							available by testers.)
 						</span>
 					</p>
 					<p class="right">
-						Creation of a <br />components library
+						Creation of a components library
 						<span class="details">(based on Material Design 3 by Google. Built with Wompo)</span>
 					</p>
 					<p class="center">And much more...</p>
@@ -372,7 +368,7 @@
 				<div class="bubble light" style="top: 50%; left: 33%; scale: 3"></div>
 				<div class="bubble" style="top: 69%; left: 69%; scale: 1"></div>
 				<div class="bubble light" style="top: 90%; left: 50%; scale: 2"></div>
-				<div class="bubble" style="top: 120%; left: 90%; scale: 1.5"></div>
+				<div class="bubble m-hidden" style="top: 120%; left: 90%; scale: 1.5"></div>
 				<div class="bubble" style="top: 110%; left: 3%; scale: 3"></div>
 				<div class="bubble light" style="top: 115%; left: 30%; scale: 2"></div>
 				<div class="container intro">
@@ -380,7 +376,7 @@
 						<img class="logo" src="/assets/logos/setitup.png" alt="Set It Up - Improvements logo" />
 					</a>
 					<div class="info">
-						<h2 class="title">Set It Up - Improvements</h2>
+						<h2 class="title">Set It Up<br />Improvements</h2>
 						Is my first website that made it to production, completely made by me (not for work).
 					</div>
 				</div>
@@ -453,8 +449,9 @@
 						considered to be odd, like <b class="highlight">Shadow DOM</b>, slots, and more.
 					</p>
 					<p>
-						For this reason, I developed a <b class="highlight">built-in CSS modules</b> that allows
-						to style your custom web-components without having to worry about style conflicts.
+						For this reason, I developed a <b class="highlight">built-in CSS modules</b> system that
+						allows to style your custom web-components without having to worry about style
+						conflicts.
 					</p>
 					<p>
 						For more, check out
@@ -468,8 +465,49 @@
 			</div>
 		</section>
 
-		<section id="summary">No animation. Columns of question/answer and info.</section>
+		<section id="summary">
+			<h2 class="title">That's it.<br />Now, a little <b class="highlight">Summary</b>.</h2>
+			<div class="grid container">
+				<div>
+					<h3>Who am I?</h3>
+					<p>
+						I'm <b class="highlight">Lorenzo Lannino</b>, a 23 years old italian guy who enjoys
+						coding, exercising, and people. I always try to
+						<b class="highlight">improve myself</b> and be better at my job, which I really like.
+						<b class="highlight">Becoming a better person and programmer</b> are my main goals in
+						life right now.
+					</p>
+				</div>
+				<div>
+					<h3>Who do I do as a job?</h3>
+					<p>
+						I work as a <b class="highlight">full-stack web developer</b> at Engimedia S.R.L. I'm
+						specialized in the <b class="highlight">frontend</b> part of a web application, but I
+						can also work on the backend part. I am also able, using Flutter, to create a
+						<b class="highlight">mobile applications</b> for all platforms.
+					</p>
+				</div>
+				<div>
+					<h3>What am I good at?</h3>
+					<p>
+						I'm good at JavaScript, <b class="highlight">TypeScript</b>, CSS, NodeJS, NextJS, React,
+						Flutter, and <b class="highlight">Wompo</b>. I can also work with ThreeJS,
+						<b class="highlight">GSAP</b>, Sass, and Python, but I didn't have the possibility to
+						apply this knowledge at work so I kinda forgot most of it.
+					</p>
+				</div>
+			</div>
+		</section>
 
-		<script src="/app/scripts.js" type="module"></script>
+		<section id="contacts" class="container">
+			<h2 class="title">Need something?<br /></h2>
+			<p>
+				Also simply positive and negative feedbacks <br />on this website are highly appreciated!
+			</p>
+			<h2 class="title"><b class="highlight">Contact me</b> at:<br /></h2>
+			<h3 class="subtitle">lanninolore@gmail.com</h3>
+		</section>
+
+		<script src="/scripts.min.js" type="module"></script>
 	</body>
 </html>

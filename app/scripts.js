@@ -200,7 +200,7 @@ certificates.forEach((certificate) => {
 	ScrollTrigger.create({
 		trigger: certificate,
 		start: 'top bottom',
-		end: 'top-=50 50%',
+		end: 'top 80%',
 		animation: numberOfCertificatesTl,
 		markers: false,
 		scrub: 1,
@@ -247,12 +247,12 @@ ScrollTrigger.create({
 });
 
 /* ========== ENGIMEDIA ========== */
-const engimediaTween = gsap.to('#engimedia', { backgroundPositionY: '100%' });
+const engimediaTween = gsap.to('#engimedia', { backgroundPositionY: '100%', ease: 'none' });
 
 ScrollTrigger.create({
 	trigger: '#engimedia',
 	start: 'top top',
-	end: 'bottom top',
+	end: 'bottom 80%',
 	animation: engimediaTween,
 	scrub: 0,
 	markers: false,
@@ -290,7 +290,7 @@ ScrollTrigger.create({
 	end: 'bottom top',
 	animation: setitupBubblesTween,
 	scrub: 0.5,
-	markers: true,
+	markers: false,
 });
 
 /* ========== WOMPO ========== */
@@ -321,10 +321,10 @@ const wompoIntroTween = gsap
 ScrollTrigger.create({
 	trigger: '#wompo .intro',
 	start: 'top top',
-	end: 'bottom+=2000 top',
+	end: 'bottom+=1000 top',
 	animation: wompoIntroTween,
 	pin: true,
-	scrub: 0.5,
+	scrub: 0.2,
 	markers: false,
 });
 
@@ -335,8 +335,8 @@ document.querySelectorAll('#wompo .info .container p').forEach((p, i) => {
 	});
 	ScrollTrigger.create({
 		trigger: p,
-		start: 'top 90%',
-		end: 'top 50%',
+		start: 'top 70%',
+		end: 'top 90%',
 		animation: tween,
 		toggleActions: 'restart none none reverse',
 		markers: false,
