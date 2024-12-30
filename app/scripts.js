@@ -6,7 +6,6 @@ import Lenis from 'lenis';
 
 document.querySelectorAll('.lazy-img').forEach((img) => {
 	img.onload = () => {
-		console.log('image loaded');
 		ScrollTrigger.refresh();
 	};
 });
