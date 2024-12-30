@@ -4,6 +4,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
 import { TextPlugin } from 'gsap/TextPlugin.js';
 import Lenis from 'lenis';
 
+document.querySelectorAll('.lazy-img').forEach((img) => {
+	img.onload = () => {
+		console.log('image loaded');
+		ScrollTrigger.refresh();
+	};
+});
+
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 window.addEventListener('load', () => {
@@ -335,8 +342,8 @@ document.querySelectorAll('#wompo .info .container p').forEach((p, i) => {
 	});
 	ScrollTrigger.create({
 		trigger: p,
-		start: 'top 70%',
-		end: 'top 90%',
+		start: 'top 80%',
+		end: 'bottom top',
 		animation: tween,
 		toggleActions: 'restart none none reverse',
 		markers: false,

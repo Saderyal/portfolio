@@ -284,6 +284,10 @@ body {
 	margin-bottom: 50vh;
 }
 
+#knowledge .wrapper {
+	overflow: hidden;
+}
+
 #knowledge .horizontal-scroll {
 	height: 100vh;
 	display: flex;
@@ -308,6 +312,7 @@ body {
 
 #knowledge .card > img {
 	width: 100px;
+	height: 100px;
 	height: auto;
 }
 #knowledge .card .card__title {
@@ -371,6 +376,9 @@ body {
 }
 
 @media (width < 700px) {
+	#knowledge .technologies {
+		gap: 3px;
+	}
 	#knowledge .technologies img:nth-child(1) {
 		grid-column: 1 / 7;
 	}

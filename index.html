@@ -26,7 +26,24 @@
 			href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css" />
+		<style>
+			html.lenis,
+			html.lenis body {
+				height: auto;
+			}
+			.lenis.lenis-smooth {
+				scroll-behavior: auto !important;
+			}
+			.lenis.lenis-smooth [data-lenis-prevent] {
+				overscroll-behavior: contain;
+			}
+			.lenis.lenis-stopped {
+				overflow: clip;
+			}
+			.lenis.lenis-smooth iframe {
+				pointer-events: none;
+			}
+		</style>
 
 		<script type="importmap">
 			{
@@ -206,7 +223,7 @@
 				<div class="horizontal-scroll">
 					<h3 class="subtitle">Let's see:</h3>
 					<div class="card">
-						<img alt="Javascript logo" src="/assets/technologies/javascript.png" />
+						<img loading="lazy" alt="Javascript logo" src="/assets/technologies/javascript.png" />
 						<div class="card__title">Javascript</div>
 						<div class="card__description">
 							I've been writing vanilla JS code almost everyday since 4 years so far. I can say I
@@ -215,7 +232,7 @@
 						</div>
 					</div>
 					<div class="card">
-						<img alt="Typescript logo" src="/assets/technologies/typescript.webp" />
+						<img loading="lazy" alt="Typescript logo" src="/assets/technologies/typescript.webp" />
 						<div class="card__title">Typescript</div>
 						<div class="card__description">
 							Everyone knows Javascript is kinda a mess, and I personally agree with it. That's the
@@ -223,7 +240,7 @@
 						</div>
 					</div>
 					<div class="card">
-						<img alt="CSS logo" src="/assets/technologies/css.webp" />
+						<img loading="lazy" alt="CSS logo" src="/assets/technologies/css.webp" />
 						<div class="card__title">CSS</div>
 						<div class="card__description">
 							I'm probably not the most creative person, but I like the idea of expressing myself
@@ -232,7 +249,7 @@
 						</div>
 					</div>
 					<div class="card">
-						<img alt="React logo" src="/assets/technologies/react.webp" />
+						<img loading="lazy" alt="React logo" src="/assets/technologies/react.webp" />
 						<div class="card__title">React</div>
 						<div class="card__description">
 							I used React for various projects. I know deeply how it works under the hood, at the
@@ -240,7 +257,7 @@
 						</div>
 					</div>
 					<div class="card">
-						<img alt="NextJS logo" src="/assets/technologies/next.png" />
+						<img loading="lazy" alt="NextJS logo" src="/assets/technologies/next.png" />
 						<div class="card__title">NextJS</div>
 						<div class="card__description">
 							For my personal projects, I used a lot the framework NextJS. I am comfortable on
@@ -248,7 +265,7 @@
 						</div>
 					</div>
 					<div class="card">
-						<img alt="Flutter logo" src="/assets/technologies/flutter.webp" />
+						<img loading="lazy" alt="Flutter logo" src="/assets/technologies/flutter.webp" />
 						<div class="card__title">Flutter</div>
 						<div class="card__description">
 							Because of its react-like way of building interfaces, I feel pretty comfortable on
@@ -262,55 +279,64 @@
 
 			<div class="technologies container">
 				<img
+					loading="lazy"
 					class="parallax-logo"
 					data-multiplier="4"
 					alt="Java logo"
 					src="/assets/technologies/java.png"
 				/>
 				<img
+					loading="lazy"
 					class="parallax-logo"
 					data-multiplier="2"
 					alt="NodeJS logo"
 					src="/assets/technologies/node.png"
 				/>
 				<img
+					loading="lazy"
 					class="parallax-logo"
 					data-multiplier="4"
 					alt="MongoDB logo"
 					src="/assets/technologies/mongodb.png"
 				/>
 				<img
+					loading="lazy"
 					class="parallax-logo"
 					data-multiplier="5"
 					alt="Dart logo"
 					src="/assets/technologies/dart.png"
 				/>
 				<img
+					loading="lazy"
 					class="parallax-logo"
 					data-multiplier="7"
 					alt="Wordpress logo"
 					src="/assets/technologies/wordpress.webp"
 				/>
 				<img
+					loading="lazy"
 					class="parallax-logo"
 					data-multiplier="7"
 					alt="GSAP logo"
 					src="/assets/technologies/gsap.svg"
 				/>
 				<img
+					loading="lazy"
 					class="parallax-logo"
 					data-multiplier="5"
 					alt="ThreeJS logo"
 					src="/assets/technologies/three.png"
 				/>
 				<img
+					loading="lazy"
 					class="parallax-logo"
 					data-multiplier="8"
 					alt="Sass logo"
 					src="/assets/technologies/sass.png"
 				/>
 				<img
-					class="parallax-logo"
+					loading="lazy"
+					class="parallax-logo lazy-img"
 					data-multiplier="8"
 					alt="SQL logo"
 					src="/assets/technologies/sql.png"
@@ -318,7 +344,7 @@
 			</div>
 		</section>
 
-		<section id="experiences">
+		<section id="experiences" class="container">
 			<h2 class="title">Now let's talk about my <br /><b class="highlight">experiences</b>.</h2>
 		</section>
 
@@ -375,7 +401,12 @@
 				<div class="bubble light" style="top: 115%; left: 30%; scale: 2"></div>
 				<div class="container intro">
 					<a href="https://www.setitup.it/" target="_blank" title="Visit website">
-						<img class="logo" src="/assets/logos/setitup.png" alt="Set It Up - Improvements logo" />
+						<img
+							loading="lazy"
+							class="logo lazy-img"
+							src="/assets/logos/setitup.png"
+							alt="Set It Up - Improvements logo"
+						/>
 					</a>
 					<div class="info">
 						<h2 class="title">Set It Up<br />Improvements</h2>
