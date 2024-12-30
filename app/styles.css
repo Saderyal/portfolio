@@ -580,6 +580,8 @@ body {
 	font-size: 28px;
 	padding: 70vh 0;
 	clip-path: polygon(0 0, 0 100%, 50% 90%, 100% 100%, 100% 0);
+	position: relative;
+	top: -1px;
 }
 
 #wompo .highlight {
