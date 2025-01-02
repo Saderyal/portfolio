@@ -17,7 +17,9 @@ window.addEventListener('load', () => {
 });
 
 // LENIS
-const lenis = new Lenis();
+const lenis = new Lenis({
+	touchInertiaMultiplier: 10,
+});
 lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add((time) => {
 	lenis.raf(time * 1000); // Convert time from seconds to milliseconds
