@@ -253,13 +253,18 @@ ScrollTrigger.create({
 });
 
 /* ========== ENGIMEDIA ========== */
-const engimediaTween = gsap.to('#engimedia', { backgroundPositionY: '100%', ease: 'none' });
+const getBottom = () => {
+	return document.getElementById('engimedia').clientHeight - window.innerWidth;
+};
+
+const engimediaTween = gsap.from('#engimedia .logo', { bottom: getBottom, ease: 'none' });
 
 ScrollTrigger.create({
 	trigger: '#engimedia',
 	start: 'top top',
 	end: 'bottom 80%',
 	animation: engimediaTween,
+	invalidateOnRefresh: true,
 	scrub: 0,
 	markers: false,
 });
