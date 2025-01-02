@@ -385,6 +385,7 @@ body {
 	position: relative;
 	display: block;
 	padding-bottom: 500px;
+	overflow: hidden;
 }
 #setitup > .content > .intro {
 	display: flex;
